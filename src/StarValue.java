@@ -1,4 +1,10 @@
 
+/**
+ * 
+ * Useful enum for URLs and such.
+ *
+ */
+
 public enum StarValue{
 	ARIES(0, "aries"), TAURUS(1, "taurus"), GEMINI(2, "gemini"), CANCER(3, "cancer"),
 	LEO(4, "leo"), VIRGO(5, "virgo"), LIBRA(6, "libra"), SCORPIO(7, "scorpio"),

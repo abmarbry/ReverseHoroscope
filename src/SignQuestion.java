@@ -1,10 +1,13 @@
 import java.util.Arrays;
 
+/**
+ * 
+ * Represents the actual questions of ReverseHoroscope, keeping track of the data from the questions, including the data for the relevant "part",
+ * storing the answer objects, and knowing which answers have been given, as it is selected randomly.
+ *
+ */
+
 public class SignQuestion {
-	private final int PART_ONE_ANSWERS_NEEDED = 1;
-	private final int PART_ONE_ANSWER_ITERATIONS = 12;
-	private final int PART_TWO_ANSWERS_NEEDED = 3;
-	private final int PART_TWO_ANSWER_ITERATIONS = 4;
 	
 	private Sign[] signAnswers; 
 	private boolean[] answerUsed;
@@ -88,31 +91,4 @@ public class SignQuestion {
 		return true;
 	}
 	
-	public int determineAnswersNeededPerIterations() {
-		if(questionPart == 1) {
-			return PART_ONE_ANSWERS_NEEDED;
-		}
-		else if (questionPart == 2) {
-			return PART_TWO_ANSWERS_NEEDED;
-		}
-		else {
-			System.out.println("A grave error has been commited. The question part is " + questionPart + " when it should be something else. I must go.");
-			System.exit(0);
-		}
-		return 0; //bad
-	}
-	
-	public int determineAnswerIterations() {
-		if(questionPart == 1) {
-			return PART_ONE_ANSWER_ITERATIONS;
-		}
-		else if (questionPart == 2) {
-			return PART_TWO_ANSWER_ITERATIONS;
-		}
-		else {
-			System.out.println("A grave error has been commited. The question part is " + questionPart + " when it should be something else. I must go.");
-			System.exit(0);
-		}
-		return 0; //bad
-	}
 }

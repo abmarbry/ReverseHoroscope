@@ -2,6 +2,12 @@ import java.io.IOException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+/**
+ * 
+ * Represents the individual Sign, mostly in the form of giving their Horoscopes.
+ *
+ */
+
 public class Sign {
 	private final static String[] USED_URLS = {"https://www.astrology.com/horoscope/daily/" , "https://www.tarot.com/daily-horoscope/"};
 	private StarValue starSign;
