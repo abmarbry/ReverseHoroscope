@@ -10,7 +10,6 @@ public class Profile implements Serializable {
 	private int mostConnectionPossible;
 	private String name;
 	private boolean hasUpdatedValuesToday;
-	private Calendar firstDayInstantiated;
 	private Calendar lastTimeUsed;
 	private Calendar today;
 	
@@ -18,7 +17,6 @@ public class Profile implements Serializable {
 		this.name = name;
 		signConnection = new int[StarValue.TOTAL_SIGN_NUM];
 		mostConnectionPossible = 0;
-		firstDayInstantiated = Calendar.getInstance();
 		hasUpdatedValuesToday = false;
 		lastTimeUsed = null;
 	}
@@ -60,6 +58,10 @@ public class Profile implements Serializable {
 		lastTimeUsed = today;
 	}
 	
+	public void updateDaysUsed() {
+		lastTimeUsed = Calendar.getInstance();
+	}
+	
 	public boolean hasUpdatedValuesToday() {
 		today = Calendar.getInstance();
 		if(lastTimeUsed == null || (today.compareTo(lastTimeUsed) >= MILLISECONDS_IN_A_DAY)) {
@@ -71,14 +73,4 @@ public class Profile implements Serializable {
 		return hasUpdatedValuesToday;
 	}
 	
-	public int getDaysProgramUsed() {
-		int differenceInDays;
-		if(lastTimeUsed!=null) {
-			differenceInDays = (int)( (lastTimeUsed.getTimeInMillis() - firstDayInstantiated.getTimeInMillis()) / (MILLISECONDS_IN_A_DAY));
-		}
-		else {
-			differenceInDays = 0;
-		}
-		return differenceInDays;
-	}
 }

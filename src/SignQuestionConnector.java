@@ -18,10 +18,10 @@ public class SignQuestionConnector {
 	
 	public SignQuestionConnector() {
 		signQuestions = new SignQuestion[NUMBER_OF_PARTS];
-		generateAllQuestions();
+		generateAllSigns();
 	}
 	
-	private void generateAllQuestions() {
+	private void generateAllSigns() {
 		for(int i = 0; i < signQuestions.length; i++) {
 			signQuestions[i] = new SignQuestion((i+1));
 		}

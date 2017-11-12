@@ -43,7 +43,6 @@ public class SignQuestion {
 	private void generateAnswers() {
 		for (int i = 0; i < signAnswers.length; i++) {
 			signAnswers[i] = new Sign(questionPart, i);
-			signAnswers[i].getText();
 		}
 	}
 	

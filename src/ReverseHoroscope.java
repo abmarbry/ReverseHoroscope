@@ -24,11 +24,12 @@ public class ReverseHoroscope {
 	public static void main(String[] args) {
 
 		try {
-			System.out.println("Loading. Please be patient...");
 			ArrayList<Profile> profiles = importProfiles();
-			Profile selectedProfile; //bad?
+			Profile selectedProfile;
 			SignQuestionConnector connector = new SignQuestionConnector(); //bad?
 			int choice;
+			
+			//Menu
 			
 			while(true) {
 				try {
@@ -125,7 +126,7 @@ public class ReverseHoroscope {
 					else {
 						System.out.printf("Answer " + (answerIterator+1) + ") ");
 					}
-					System.out.println(tempSigns[answerIterator].getText());
+					System.out.println(lineWrap(tempSigns[answerIterator].getText()));
 				}
 				
 				while(!answered) {
@@ -234,6 +235,19 @@ public class ReverseHoroscope {
 	 * @param selectedProfile 
 	 */
 	
+	private static String lineWrap(String s) {
+		final int MAX_WIDTH = 150;
+		int iterator = MAX_WIDTH;
+		int pos;
+		StringBuilder newString = new StringBuilder(s);
+			while(iterator < s.length()) {
+				pos = s.substring(iterator).indexOf(" ") + 1;
+				newString.insert(iterator+pos+1, '\n');
+				iterator += MAX_WIDTH + pos;
+		}
+			return newString.toString()+"\n";
+	}
+	
 	private static void printResults(Profile selectedProfile) {
 		System.out.println("\nCurrent Astrological Connection: ");
 		for(int signIterator = 0; signIterator < StarValue.TOTAL_SIGN_NUM; signIterator++) {
@@ -241,8 +255,7 @@ public class ReverseHoroscope {
 			System.out.printf(StarValue.getCapsName(signIterator) + ": " + "%d/%d, or %.2f %% \n", selectedProfile.getConnection(StarValue.values()[signIterator]),
 					selectedProfile.getMostConnectionPossible(), selectedProfile.getConnectionPercent(StarValue.values()[signIterator]));
 		}
-		System.out.println("\nYou have been using Reverse Horoscope for " + selectedProfile.getDaysProgramUsed() + " days. The more days you take this test, the more accurate the test is"
-				+ " to pointing towards a star pattern that you can call your own.\n");
+		System.out.println("\nThank you for using ReverseHoroscope! Come back tomorrow!\n");
 	}
 	
 	/*
